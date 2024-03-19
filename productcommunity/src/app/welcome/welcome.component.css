@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  height: 320vh;
+}
+
+.searchBar {
+  margin-top: 100px;
+  width: 650px;
+  margin-left: 420px;
+
+}
+
+.form-outline input[type="search"]:hover {
+  color: black;
+}
+
+.checked {
+  color: orange;
+}
+
+.card {
+  margin: 5px;
+}
+
+.card img {
+  width: 175px;
+  height: 190px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-btn {
+  height: 32px;
+  width: 110px;
+  background: #f28100;
+  border: none;
+  color: #f28100;
+  outline: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+span .filter-list-data {
+  background-color: white;
+}

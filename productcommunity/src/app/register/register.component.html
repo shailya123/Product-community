@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Registration</title>
+</head>
+
+<body>
+  <div class="loginBox" style=" font-family: Trirong,serif;">
+    <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+    <h3>Sign up here</h3>
+    <form #registerform="ngForm" (ngSubmit)="registerUser()">
+      <div class="inputBox">
+        <div>
+          <input type="email" name="emailId" placeholder="Email-Id" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="user.emailId" #email="ngModel"
+            [class.is-invalid]="email.invalid&&email.touched">
+          <div *ngIf="email.errors&&(email.invalid&&email.touched)">
+            <small class="text-danger" *ngIf="email.errors?.['required']">Email is a required field</small>
+            <small class="text-danger" *ngIf="email.errors?.['pattern']">Enter a valid Email</small>
+          </div>
+        </div>
+        <input id="firstName" type="text" name="firstName" placeholder="FirstName" [(ngModel)]="user.firstName"
+          #first="ngModel" required [class.is-invalid]="first.invalid&&first.touched">
+        <small class="text-danger" [class.d-none]="first.valid||first.untouched">First Name is a required field</small>
+        <input id="uname" type="text" name="lastName" placeholder="LastName" [(ngModel)]="user.lastName" required
+          #last="ngModel" [class.is-invalid]="last.invalid&&last.touched">
+        <small class="text-danger" [class.d-none]="last.valid||last.untouched">Last Name is a required field</small>
+        <input id="pass" type="password" name="password" placeholder="Password" [(ngModel)]="user.password" required
+          #password1="ngModel" [class.is-invalid]="password1.invalid&&password1.touched">
+        <small class="text-danger" [class.d-none]="password1.valid||password1.untouched">Password is a required
+          field</small>
+        <input type="password" name="Confirm Password" placeholder="Confirm Password" required (ngModel)="user.password"
+          #cpassword="ngModel" [class.is-invalid]="cpassword.invalid&&cpassword.touched">
+        <small class="text-danger" [class.d-none]="((cpassword.value==password1.value)||cpassword.untouched)">Password
+          and Confirm Password must be same</small>
+      </div>
+      <a><button [disabled]="registerform.form.invalid">Register</button></a>
+    </form>
+    <br>
+    <a routerLink="/loginuser" style="color:#fff; text-decoration: underline;">Already have an account?</a>
+  </div>
+
+</body>
+
+</html>
